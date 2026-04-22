@@ -2,27 +2,28 @@
 
 int main() {
 
-    // 🔹 Constructor overloading
-    Ride r1;                  // default
-    Ride r2(10, 5);           // parameterized
-    Ride r3 = r2;             // copy
+    // 🔹 Object creation (constructor overloading)
+    Ride r1;
+    Ride r2(12, 6);
+    Ride r3 = r2;
 
-    // 🔹 Function overloading
+    // 🔹 Function overloading demonstration
     cout << "Default Fare: " << r2.calculateFare() << endl;
-    cout << "Custom KM Rate: " << r2.calculateFare(15) << endl;
-    cout << "Full Custom: " << r2.calculateFare(15, 3) << endl;
+    cout << "Rate-based Fare: " << r2.calculateFare(15) << endl;
+    cout << "Full custom Fare: " << r2.calculateFare(15, 3) << endl;
 
-    // 🔹 Operator overloading
-    Ride total = r2 + r3;
+    // 🔹 Operator overloading demonstration
+    Ride combined = r2 + r3;
     Ride diff = r2 - r3;
     Ride surge = r2 * 1.5;
 
-    cout << total << endl;
+    cout << combined << endl;
     cout << diff << endl;
     cout << surge << endl;
 
+    // 🔹 Comparison operators
     if (r2 == r3)
-        cout << "Both rides have equal fare\n";
+        cout << "Fares are equal\n";
 
     if (r2 < surge)
         cout << "Original ride is cheaper than surged ride\n";
