@@ -12,7 +12,6 @@ private:
 
 public:
 
-    // 🔹 Function Overloading (Initialization methods)
 
     Ride() {
         distance = 0;
@@ -32,7 +31,6 @@ public:
         fare = r.fare;
     }
 
-    // 🔹 Function Overloading (Fare Calculation)
     float calculateFare() {
         fare = 50 + distance * 10 + duration * 2;
         return fare;
@@ -48,40 +46,33 @@ public:
         return fare;
     }
 
-    // 🔹 Operator Overloading
 
-    // + (combine rides)
     Ride operator+(const Ride &r) {
         Ride temp;
         temp.fare = this->fare + r.fare;
         return temp;
     }
 
-    // - (fare difference)
     Ride operator-(const Ride &r) {
         Ride temp;
         temp.fare = this->fare - r.fare;
         return temp;
     }
 
-    // * (surge multiplier)
     Ride operator*(float multiplier) {
         Ride temp;
         temp.fare = this->fare * multiplier;
         return temp;
     }
 
-    // == (compare fares)
     bool operator==(const Ride &r) {
         return this->fare == r.fare;
     }
 
-    // < (cheaper ride check)
     bool operator<(const Ride &r) {
         return this->fare < r.fare;
     }
 
-    // << (output display)
     friend ostream& operator<<(ostream &out, const Ride &r) {
         out << "Ride Fare: " << r.fare;
         return out;
